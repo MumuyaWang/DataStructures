@@ -35,7 +35,7 @@ public class ArrayQueueDemo {
                 case 'g':            //从队列中取出数据
                     try{
                         int res = queue.getQueue();
-                        System.out.printf("取出的数据是%\n",res);
+                        System.out.printf("取出的数据是%d\n",res);
                     }catch(Exception e){
                         System.out.println(e.getMessage());
                     }
@@ -47,6 +47,7 @@ public class ArrayQueueDemo {
                     }catch(Exception e){
                         System.out.println(e.getMessage());
                     }
+                    break;
                 case 'e':           //退出
                     scanner.close();
                     loop = false;
