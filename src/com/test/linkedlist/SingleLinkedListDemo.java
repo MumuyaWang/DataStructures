@@ -43,6 +43,24 @@ public class SingleLinkedListDemo {
         singLinkedList.del(3);
         //显示
         singLinkedList.list();
+
+        //显示单链表的有效长度
+        System.out.println("该单链表的有效长度为："+getLength(singLinkedList.getHead()));
+    }
+
+    public static int getLength(HeroNode head){
+        if(head.next == null){
+            //空链表时，长度为0
+            return 0;
+        }
+        int length =0;
+        //定义一个辅助变量temp
+        HeroNode temp = head.next;
+        while(temp != null){
+            length++;
+            temp = temp.next;
+        }
+        return length;
     }
 }
 
@@ -50,6 +68,11 @@ public class SingleLinkedListDemo {
 class SingLinkedList{
     //先初始化一个头节点，头节点不要动，不存放具体的数据
     private HeroNode head = new HeroNode(0,"","");
+
+    //返回头节点
+    public HeroNode getHead(){
+        return head;
+    }
 
     //添加节点到单向链表
     //第一种方法在添加英雄时，直接添加到链表的尾部
@@ -188,8 +211,6 @@ class SingLinkedList{
             temp = temp.next;
         }
     }
-
-
 }
 
 
