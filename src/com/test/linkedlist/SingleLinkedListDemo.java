@@ -46,8 +46,42 @@ public class SingleLinkedListDemo {
 
         //显示单链表的有效长度
         System.out.println("该单链表的有效长度为："+getLength(singLinkedList.getHead()));
+
+        //获取倒数第K个节点
+        int k = 1;
+        HeroNode res = findLastIndexNode(singLinkedList.getHead(),k);
+        System.out.println("倒数第"+ k +"个节点是"+res);
     }
 
+    //查找单链表中的倒数第K个节点【新浪面试题】
+    //分析思路：
+    //1、编写一个方法，接收head节点，同时接收一个index
+    //2、index表示是倒数第index个节点
+    //3、把链表从头到尾遍历，得到链表的总长度getLength
+    //4、得到size后，从链表的第一个开始遍历（size-index）个，就可得到单链表中的倒数第K个节点
+    public static HeroNode findLastIndexNode(HeroNode head, int index){
+        //判断如果链表为空，返回为null
+        if(head.next == null){
+            return null;
+        }
+        //第一个遍历：得到链表的长度（节点的个数）
+        int size = getLength(head);
+        //第二个遍历：size-index位置，就是倒数第K个节点
+        //1、先校验一下index
+        if(index <= 0 || index > size){
+            return null;
+        }
+        //2、定义辅助变量，for循环定位到倒数的index
+        HeroNode temp = head.next;
+        for(int i = 0; i < size - index; i++ ){
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+
+
+    //统计单链表的有效长度
     public static int getLength(HeroNode head){
         if(head.next == null){
             //空链表时，长度为0
