@@ -1,6 +1,5 @@
 package com.test.linkedlist;
 
-import com.sun.prism.shader.Solid_TextureYV12_AlphaTest_Loader;
 
 /**
  * Created by Mumuya on  2019/8/6
@@ -11,6 +10,9 @@ import com.sun.prism.shader.Solid_TextureYV12_AlphaTest_Loader;
  */
 public class SingleLinkedListDemo {
     public static void main(String[] args){
+
+        System.out.println("单向链表的测试：");
+
         //创建节点
         HeroNode hero1 = new HeroNode(1,"宋江","及时雨");
         HeroNode hero2 = new HeroNode(2,"卢俊义","玉麒麟");
